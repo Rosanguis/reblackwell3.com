@@ -1,0 +1,3 @@
+nav = '<nav class="top-bar" data-topbar role="navigation"> <ul class="title-area"> <li class="brand"> <!-- link href --> <a href="#"><img src="images/brand/gold.jpg"> Robert Blackwell</a> </li> <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> </ul> <section class="top-bar-section"> <!-- Right Nav Section --> <ul class="right"> <li class="active"><a href="#about">About</a></li> <!-- link href --> <li><a href="#">Services</a></li> <li><a href="#">Portfolio</a></li> <li><a href="#"><i class="fi-mail"></i>Contact</a></li> </ul> </section></nav>';
+$('#top')
+    .after(nav);
