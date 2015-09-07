@@ -123,6 +123,8 @@ articles.globalTravel = {
                 },
                 text: ' <p>When I was 18, my dad and I spent 7 weeks in Europe and visited over 10 countries. I planned the trip to maximize the number of interesting things we could see every day. We stuck to my schedule for maybe a week before we were tired of seeing art museums. Afterwards we used the schedule but didn&rsquo;t follow it religiously. </p> <p>The trip was great since we got to visit so many simultaneously modern and historic cities: London, Paris, Rome, Berlin, Amsterdam, Prague, etc. </p>'
             },
+            //Must be updated to add third section
+            //Empty skeleton or cloning
             3: {
                 id: 'north-america',
                 title: {

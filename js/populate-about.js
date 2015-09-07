@@ -1,6 +1,18 @@
+function populateHeader(header) {
+    var $header = $('header');
+
+    function populateHeaderElement(text, selector) {
+        $header.find(selector)
+            .html(text);
+    }
+    populateHeaderElement(header.title, ':header:eq(0)');
+    populateHeaderElement(header.subtitle, ':header:eq(1)');
+    populateHeaderElement(header.text, 'p');
+}
+
 function populateSection(sections, n) {
     var section = sections[n],
-    $section = $('section:nth-of-type(' + n + ')');
+        $section = $('section:nth-of-type(' + n + ')');
     $section.attr('id', section.id);
     //
     var $columns = $section.find('div.columns');
@@ -25,23 +37,16 @@ function populateArticle(article) {
     $('article')
         .attr('id', article.id);
     //
-    var header = article.sections.header,
-        $header = $('header');
-
-    function populateHeader(text, selector) {
-        $header.find(selector)
-            .html(text);
-    }
-    populateHeader(header.title, ':header:eq(0)');
-    populateHeader(header.subtitle, ':header:eq(1)');
-    populateHeader(header.text, 'p');
+    populateHeader(article.sections.header);
     //
     var sections = article.sections.section;
-    populateSection(sections, 1);
-    populateSection(sections, 2);
+    for (i = 1; i < Object.keys(sections)
+        .length; i++) {
+        populateSection(sections, i);
+    }
     //
     $('aside')
         .find('p')
         .html(article.sections.aside.data);
 }
-populateArticle(articles.unionPacific);
+populateArticle(articles.globalTravel);
