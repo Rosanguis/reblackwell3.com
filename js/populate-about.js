@@ -1,9 +1,6 @@
-//Find the correct article
-var article = articles.georgiaTech;
-//Find the correct section
-function populateSection(n) {
-    var section = article.sections.section[n],
-        $section = $('section:nth-of-type(' + n + ')');
+function populateSection(sections, n) {
+    var section = sections[n],
+    $section = $('section:nth-of-type(' + n + ')');
     $section.attr('id', section.id);
     //
     var $columns = $section.find('div.columns');
@@ -39,11 +36,12 @@ function populateArticle(article) {
     populateHeader(header.subtitle, ':header:eq(1)');
     populateHeader(header.text, 'p');
     //
-    populateSection(1);
-    populateSection(2);
+    var sections = article.sections.section;
+    populateSection(sections, 1);
+    populateSection(sections, 2);
     //
     $('aside')
         .find('p')
         .html(article.sections.aside.data);
 }
-populateArticle(article);
+populateArticle(articles.unionPacific);
