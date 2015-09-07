@@ -40,7 +40,7 @@ function populateArticle(article) {
     populateHeader(article.sections.header);
     //
     var sections = article.sections.section;
-    for (i = 1; i < Object.keys(sections)
+    for (i = 1; i <= Object.keys(sections)
         .length; i++) {
         populateSection(sections, i);
     }
@@ -49,4 +49,4 @@ function populateArticle(article) {
         .find('p')
         .html(article.sections.aside.data);
 }
-populateArticle(articles.globalTravel);
+populateArticle(articles.unionPacific);
