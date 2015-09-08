@@ -49,4 +49,5 @@ function populateArticle(article) {
         .find('p')
         .html(article.sections.aside.data);
 }
-populateArticle(articles.unionPacific);
+
+populateArticle(articles.eagleScout);

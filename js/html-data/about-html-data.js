@@ -1,3 +1,5 @@
+//There is currently redundant data about types and foundationGrid
+
 var articles = {
     georgiaTech: {
         id: 'about-georgia-tech',
