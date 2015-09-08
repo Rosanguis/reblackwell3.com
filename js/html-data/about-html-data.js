@@ -1,16 +1,24 @@
+<<<<<<< HEAD
 //There is currently redundant data about types and foundationGrid
 
+=======
+>>>>>>> e50dab2... Playing it safe
 var articles = {
     georgiaTech: {
         id: 'about-georgia-tech',
         cssClass: 'about',
         sections: {
             header: {
+<<<<<<< HEAD
                 type: 'header',
+=======
+                type: 'header'
+>>>>>>> e50dab2... Playing it safe
                 title: 'Georgia Tech',
                 subtitle: 'B.S. Industrial Engineering<br>High Honors',
                 text: 'Georgia Tech prepared me for my career by providing a wide variety of technical skills and life experiences'
             },
+<<<<<<< HEAD
             section: {
                 1: {
                     id: 'study-abroad',
@@ -177,3 +185,42 @@ var articles = {
         }
     }
 };
+=======
+            studyAbroad: {
+                type: 'section',
+                order: 1,
+                id: 'study-abroad',
+                title: {
+                    text: 'China &amp; Singapore',
+                    position: 'left',
+                    foundationGrid: 'small-5',
+                    img: {
+                        type: 'url', //Sprite or URI?
+                        data: 'images/about/tech_tower.jpg'
+                    }
+                },
+                text: 'I studied abroad during the summer of 2014 for 6 weeks in China and 6 weeks in Singapore. This was my most impactful experience at Georgia Tech. I made lasting connections with people abroad who showed me the similarities and differences between Asian, primarily Chinese, and Western culture. In fact, I still study Mandarin Chinese and message with Chinese friends in Mandarin and English nearly daily.'
+            },
+            funFact: {
+                type: 'aside',
+                text: 'Fun fact: Both of my parents are also Georgia Tech alumni. There was no escape for me.'
+            },
+            dataScience: {
+                type: 'section',
+                order: 2,
+                id: 'data-science',
+                title: {
+                    text: 'Data Science',
+                    position: 'right',
+                    foundationGrid: 'small-5',
+                    img: {
+                        type: 'url', //Sprite or URI?
+                        data: 'images/about/tech_tower.jpg'
+                    }
+                },
+                text: 'During my final year at Georgia Tech, I took an interest in data science. I had an excellent professor for a data visualization class and another great professor for a challenging analytics course. The next semester I attended the Strata Hadoop World conference in California. (For the most part it was over my head.) My interest in data science has not wavered, and I am finding avenues to improve my skills and experience in data visualization and analysis.'
+            }
+        }
+    }
+}
+>>>>>>> e50dab2... Playing it safe
