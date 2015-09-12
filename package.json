@@ -1,19 +1,20 @@
 {
-    "name": "robert3blackwell.com grunt",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/reblackwell3/Robert3Blackwell.com.git"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.5",
-        "grunt-contrib-watch": "~0.6.1",
-        "grunt-sass": "~0.18.0",
-        "grunt-serve": "^0.1.6",
-        "node-sass": "~2.0.1",
-        "matchdep": "~0.1.2",
-        "grunt-express": "~1.0.0-beta2",
-        "grunt-contrib-watch": "~0.5.1",
-        "grunt-open": "~0.2.1"
-    }
+  "name": "robert3blackwell.com-grunt",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reblackwell3/Robert3Blackwell.com.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-express": "~1.0.0-beta2",
+    "grunt-open": "~0.2.1",
+    "grunt-processhtml": "^0.3.8",
+    "grunt-sass": "~0.18.0",
+    "grunt-serve": "^0.1.6",
+    "grunt-uncss": "^0.4.3",
+    "matchdep": "~0.1.2",
+    "node-sass": "~2.0.1"
+  }
 }
