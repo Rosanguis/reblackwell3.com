@@ -1,11 +1,14 @@
 $(document)
     .foundation();
-$(document)
+function equalizeDocument() {
+    $(document)
     .foundation({
         equalizer: {
             equalize_on_stack: true
         }
     });
+};
+equalizeDocument();
 
 function buildHandlebarHtml(articleId) {
     var handlebarScript = $(articleId)
@@ -18,7 +21,8 @@ function buildHandlebarHtml(articleId) {
 function setActiveTab(activeTabSelector) {
     $('#ul-nav li')
         .removeClass('active');
-    $(activeTabSelector).addClass('active');
+    $(activeTabSelector)
+        .addClass('active');
 }
 
 function displayContactPage() {
@@ -30,6 +34,7 @@ function displayContactPage() {
         .find('#contact')
         .show();
     setActiveTab('#contact-nav');
+    equalizeDocument();
 }
 
 function displayAboutPage() {
@@ -40,6 +45,7 @@ function displayAboutPage() {
         .not('#contact')
         .show();
     setActiveTab('#about-nav');
+    equalizeDocument();
 }
 $(document)
     .ready(function () {
