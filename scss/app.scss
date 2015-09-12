@@ -63,6 +63,11 @@ section > div.row:first-of-type {
     opacity: .3;
 }
 
+.anchor {
+    padding-top: 2 * $topbar-height;
+    margin-top: -2 * $topbar-height;
+}
+
 //Delete: Illustration Only
 
 // body * {

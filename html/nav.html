@@ -1,19 +1,22 @@
-<div class="sticky">
-    <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-            <li class="brand">
-                <!-- link href -->
-                <a href="#"><img src="images/brand/gold.jpg"> Robert Blackwell</a>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-
-        <section class="top-bar-section">
-            <!-- Right Nav Section -->
-            <ul class="right">
-                <li class="active"><a href="#about">About</a></li>
-                <li><a href="#contact"><i class="fi-mail"></i>Contact</a></li>
+<div id="topbar" class="sticky">
+    <!-- cannot add to class="sticky" because of flickering -->
+    <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="brand">
+                    <!-- link href -->
+                    <a href="#"><img src="images/brand/gold.jpg"> Robert Blackwell</a>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
             </ul>
-        </section>
-    </nav>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul id="ul-nav" class="right">
+                    <li id="about-nav" class="active" onclick="displayAboutPage();"><a href="#about">About</a></li>
+                    <li id="contact-nav" onclick="displayContactPage();"><a href="#contact"><i class="fi-mail"></i>Contact</a></li>
+                </ul>
+            </section>
+        </nav>
+    </div>
 </div>
