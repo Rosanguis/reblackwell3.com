@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -42,28 +42,46 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             all: {
-                files: ['**/*.html', '**/*.*css'],
+                files: 'processed-index.html',
                 options: {
                     livereload: true
                 }
+            },
+            processhtml: {
+                files: ['index.html', 'html/**.html'],
+                tasks: ['processhtml']
             }
         },
         // grunt-open will open your browser at the project's URL
         open: {
             all: {
                 // Gets the port from the connect configuration
-                path: 'http://localhost:<%= express.all.options.port%>/index.html'
+                path: 'http://localhost:<%= express.all.options.port%>/processed-index.html'
+            }
+        },
+        uncss: {
+            dist: {
+                options: {
+                    ignore: ['#added_at_runtime', '.created_by_jQuery']
+                },
+                files: {
+                    'css/uncss.css': 'index.html'
+                }
+            }
+        },
+        processhtml: {
+            dist: {
+                files: {
+                    'processed-index.html': ['index.html']
+                }
             }
         }
-    
     });
     // Load Grunt tasks declared in the package.json file
     require('matchdep')
         .filterDev('grunt-*')
         .forEach(grunt.loadNpmTasks);
-    // grunt.loadNpmTasks('grunt-sass');
-    // grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('build', ['sass']);
+    grunt.registerTask('build', ['sass', 'processhtml']);
     grunt.registerTask('server', ['express', 'open', 'watch']);
-    grunt.registerTask('default', ['build', 'server', 'watch']);
+    grunt.registerTask('default', ['build', 'server']);
 };
