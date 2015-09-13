@@ -8,7 +8,7 @@ function equalizeDocument() {
                 equalize_on_stack: true
             }
         });
-};
+}
 equalizeDocument();
 
 function buildHandlebarHtml(articleId) {
@@ -51,7 +51,7 @@ function displayAboutPage() {
 
 function centerTextVerticallyWithImage() {
     $('.center-vertically').each(function() {
-        var $closestImg = $(this).closest('.row').find('img');
+        var $closestImg = $(this).closest('.row').find('img:visible');
         var margin = ($closestImg.height() - $(this).height()) / 2;
         $(this).css('margin', margin + 'px 0px');
     });
@@ -61,7 +61,11 @@ $(document)
     .ready(function() {
         Handlebars.registerPartial('article-header', $('#article-header')
             .html());
-        var articleIds = ['#about-georgia-tech', '#about-union-pacific', '#about-global-travel', '#about-eagle-scout'];
+        var articleIds = ['#about-georgia-tech',
+            '#about-union-pacific',
+            '#about-global-travel',
+            '#about-eagle-scout'
+        ];
         for (var i = 0; i < articleIds.length; i++) {
             var articleId = articleIds[i];
             buildHandlebarHtml(articleId);

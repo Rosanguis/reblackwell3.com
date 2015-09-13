@@ -16,5 +16,8 @@
     "grunt-uncss": "^0.4.3",
     "matchdep": "~0.1.2",
     "node-sass": "~2.0.1"
+  },
+  "dependencies": {
+    "sass-convert": "^0.5.2"
   }
 }
