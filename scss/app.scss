@@ -61,6 +61,14 @@ section > div.row:first-of-type {
 }
 
 .anchor {
-    margin-top: -$topbar-height;
+    margin: -$topbar-height 0 $topbar-height;
     padding-top: 2 * $topbar-height;
+}
+
+article > header.row {
+    margin: $topbar-height/4 auto;
+}
+
+aside {
+    color: $gt-gold;
 }
