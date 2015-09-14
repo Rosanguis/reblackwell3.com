@@ -42,27 +42,29 @@ function displayAboutPage() {
 }
 
 function centerTextVerticallyWithImage() {
-    $('.center-vertically').each(function() {
-        var $closestImg = $(this).closest('.row').find('img:visible');
-        var margin = ($closestImg.height() - $(this).height()) / 2;
-        $(this).css('margin', margin + 'px 0px');
-    });
+    $('.center-vertically')
+        .each(function () {
+            var $closestImg = $(this)
+                .closest('.row')
+                .find('img:visible');
+            var margin = ($closestImg.height() - $(this)
+                .height()) / 2;
+            $(this)
+                .css('margin', margin + 'px 0px');
+        });
 }
-
 $(document)
-    .ready(function() {
-        var articleIds = ['#about-georgia-tech',
-            '#about-union-pacific',
-            '#about-global-travel',
-            '#about-eagle-scout'
-        ];
+    .ready(function () {
+        var articleIds = ['#about-georgia-tech', '#about-union-pacific', '#about-global-travel', '#about-eagle-scout'];
         for (var i = 0; i < articleIds.length; i++) {
             var articleId = articleIds[i];
-            $(articleId + ' ul.small-block-grid-2').find('img:eq(' + i + ')')
+            $(articleId + ' ul.small-block-grid-2')
+                .find('img:eq(' + i + ')')
                 .css('opacity', '1');
         }
         centerTextVerticallyWithImage();
-        $(window).resize(function() {
-            centerTextVerticallyWithImage();
-        });
+        $(window)
+            .resize(function () {
+                centerTextVerticallyWithImage();
+            });
     });

@@ -1,7 +1,7 @@
-    @import "settings",
+    @import 'settings',
 //   "foundation/components/accordion",
 //   "foundation/components/alert-boxes",
-  "foundation/components/block-grid",
+  'foundation/components/block-grid',
 //   "foundation/components/breadcrumbs",
 //   "foundation/components/button-groups",
 //   "foundation/components/buttons",
@@ -9,12 +9,12 @@
 //   "foundation/components/dropdown",
 //   "foundation/components/dropdown-buttons",
 //   "foundation/components/flex-video",
-  "foundation/components/forms",
-  "foundation/components/grid",
+  'foundation/components/forms',
+  'foundation/components/grid',
 //   "foundation/components/inline-lists",
 //   "foundation/components/joyride",
 //   "foundation/components/keystrokes",
-  "foundation/components/labels",
+  'foundation/components/labels',
 //   "foundation/components/magellan",
 //   "foundation/components/orbit",
 //   "foundation/components/pagination",
@@ -30,29 +30,30 @@
 //   "foundation/components/tabs",
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
-  "foundation/components/top-bar",
-  "foundation/components/type",
+  'foundation/components/top-bar',
+  'foundation/components/type',
 //   "foundation/components/offcanvas",
-  "foundation/components/visibility";
+  'foundation/components/visibility';
 
 a > i {
     margin-right: rem-calc(5);
 }
 
 li.brand > a {
-    color: $gt-gold;
     font-size: $topbar-height * .4;
+
+    color: $gt-gold;
     img {
         height: $topbar-height;
     }
 }
 
 textarea {
-  height: auto;
+    height: auto;
 }
 
 section > div.row:first-of-type {
-  margin-bottom: $paragraph-margin-bottom / 2;
+    margin-bottom: $paragraph-margin-bottom / 2;
 }
 
 .small-block-grid-2 img {
@@ -60,6 +61,6 @@ section > div.row:first-of-type {
 }
 
 .anchor {
+    margin-top: -$topbar-height;
     padding-top: 2 * $topbar-height;
-    margin-top: -2 * $topbar-height;
 }
