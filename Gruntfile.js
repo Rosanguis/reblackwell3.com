@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'css/app.css': 'scss/app.scss'
+                    'dev/css/robert3blackwell.min.css': 'dev/scss/robert3blackwell.scss'
                 }
             }
         },
@@ -38,11 +38,11 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             sass: {
-                files: 'scss/**/*.scss',
+                files: 'dev/scss/**/*.scss',
                 tasks: ['sass']
             },
             all: {
-                files: 'processed-index.html',
+                files: 'dist/index.html',
                 options: {
                     livereload: true
                 }
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         open: {
             all: {
                 // Gets the port from the connect configuration
-                path: 'http://localhost:<%= express.all.options.port%>/processed-index.html'
+                path: 'http://localhost:<%= express.all.options.port%>/dist/index.html'
             }
         },
         uncss: {
@@ -65,14 +65,21 @@ module.exports = function (grunt) {
                     ignore: ['#added_at_runtime', '.created_by_jQuery']
                 },
                 files: {
-                    'css/uncss.css': 'index.html'
+                    'dev/css/uncss.css': 'dev/index.html'
                 }
             }
         },
         processhtml: {
             dist: {
                 files: {
-                    'processed-index.html': ['index.html']
+                    'dist/index.html': ['dev/index.html']
+                }
+            }
+        },
+        uglify: {
+            my_target: {
+                files: {
+                    'dev/js/robert3blackwell.min.js': ['dev/js/robert3blackwell.js']
                 }
             }
         }
@@ -81,7 +88,7 @@ module.exports = function (grunt) {
     require('matchdep')
         .filterDev('grunt-*')
         .forEach(grunt.loadNpmTasks);
-    grunt.registerTask('build', ['sass', 'processhtml']);
+    grunt.registerTask('build', ['sass', 'uglify', 'processhtml']);
     grunt.registerTask('server', ['express', 'open', 'watch']);
     grunt.registerTask('default', ['build', 'server']);
 };
