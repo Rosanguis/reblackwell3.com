@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'dev/css/robert3blackwell.min.css': 'dev/scss/robert3blackwell.scss'
+                    'src/css/robert3blackwell.min.css': 'src/scss/robert3blackwell.scss'
                 }
             }
         },
@@ -38,17 +38,17 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             sass: {
-                files: 'dev/scss/**/*.scss',
+                files: 'src/scss/**/*.scss',
                 tasks: ['sass']
             },
             all: {
-                files: 'dist/index.html',
+                files: 'target/index.html',
                 options: {
                     livereload: true
                 }
             },
             processhtml: {
-                files: ['dev/**'],
+                files: ['src/**'],
                 tasks: ['processhtml']
             }
         },
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         open: {
             all: {
                 // Gets the port from the connect configuration
-                path: 'http://localhost:<%= express.all.options.port%>/dist/index.html'
+                path: 'http://localhost:<%= express.all.options.port%>/target/index.html'
             }
         },
         uncss: {
@@ -65,21 +65,21 @@ module.exports = function (grunt) {
                     ignore: ['#added_at_runtime', '.created_by_jQuery']
                 },
                 files: {
-                    'dev/css/uncss.css': 'dev/index.html'
+                    'src/css/uncss.css': 'src/index.html'
                 }
             }
         },
         processhtml: {
             dist: {
                 files: {
-                    'dist/index.html': ['dev/index.html']
+                    'target/index.html': ['src/index.html']
                 }
             }
         },
         uglify: {
             my_target: {
                 files: {
-                    'dev/js/robert3blackwell.min.js': ['dev/js/robert3blackwell.js']
+                    'src/js/robert3blackwell.min.js': ['src/js/robert3blackwell.js']
                 }
             }
         }

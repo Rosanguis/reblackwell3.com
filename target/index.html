@@ -348,38 +348,14 @@ meta.foundation-version{font-family:"/5.5.2/"}meta.foundation-mq-small{font-fami
             </div>
         </section>
         </article>
-        <section id="contact" class="row anchor" style="display: none;" data-equalizer>
-    <div class="small-10 small-centered large-8 large-centered columns">
-        <h1 class="text-center">Contact Me</h1>
-        <form id="contact-form" class="row">
-            <div class="medium-6 columns" data-equalizer-watch>
-                <label>Name
-                    <input required id="name" type="text" placeholder="What is your name?">
-                </label>
-                <label>Email
-                    <input required id="email" type="email" placeholder="What is your email?">
-                </label>
-                <label>Phone
-                    <input id="phone" type="tel" placeholder="What is your phone number?">
-                </label>
-            </div>
-            <div class="medium-6 columns">
-                <label>Message
-                    <textarea required autofocus id="message" maxlength="400" rows="8" placeholder="What would you like to say?" data-equalizer-watch></textarea>
-                </label>
-            </div>
-            <div class="small-6 small-centered columns text-center">
-                <button type="submit" class="button">Send</button>
-            </div>
-        </form>
-    </div>
-</section>
+        <!-- build:include html/contact.html -->
+        <!-- /build -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.accordion.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.equalizer.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.topbar.min.js"></script>
         <script>
-function equalizeDocument(){$(document).foundation({equalizer:{equalize_on_stack:!0}})}function setActiveTab(a){$("#ul-nav li").removeClass("active"),$(a).addClass("active")}function displayContactPage(){var a=$("body").children().not("#topbar","#contact");a.hide(),$("body").find("#contact").show(),setActiveTab("#contact-nav"),equalizeDocument()}function displayAboutPage(){var a=$("#contact");a.hide(),$("body").children().not("#contact").show(),setActiveTab("#about-nav"),equalizeDocument()}function centerTextVerticallyWithImage(){$(".center-vertically").each(function(){var a=$(this).closest(".row").find("img:visible"),b=(a.height()-$(this).height())/2;$(this).css("margin",b+"px 0px")})}$(document).foundation(),equalizeDocument(),$(document).ready(function(){for(var a=["#about-georgia-tech","#about-union-pacific","#about-global-travel","#about-eagle-scout"],b=0;b<a.length;b++){var c=a[b];$(c+" ul.small-block-grid-2").find("img:eq("+b+")").css("opacity","1")}centerTextVerticallyWithImage(),$(window).resize(function(){centerTextVerticallyWithImage()})});        </script>
+function equalizeDocumentAndCreateAccordion(){$(document).foundation({equalizer:{equalize_on_stack:!0}}),$(document).foundation({accordion:{callback:function(a){console.log(a)}}})}function setActiveTab(a){$("#ul-nav li").removeClass("active"),$(a).addClass("active")}function displayContactPage(){var a=$("body").children().not("#topbar","#contact");a.hide(),$("body").find("#contact").show(),setActiveTab("#contact-nav"),equalizeDocumentAndCreateAccordion()}function displayAboutPage(){var a=$("#contact");a.hide(),$("body").children().not("#contact").show(),setActiveTab("#about-nav"),equalizeDocumentAndCreateAccordion()}function centerTextVerticallyWithImage(){$(".center-vertically").each(function(){var a=$(this).closest(".row").find("img:visible"),b=(a.height()-$(this).height())/2;$(this).css("margin",b+"px 0px")})}$(document).foundation(),equalizeDocumentAndCreateAccordion(),$(document).ready(function(){for(var a=["#about-georgia-tech","#about-union-pacific","#about-global-travel","#about-eagle-scout"],b=0;b<a.length;b++){var c=a[b];$(c+" ul.small-block-grid-2").find("img:eq("+b+")").css("opacity","1")}centerTextVerticallyWithImage(),$(window).resize(function(){centerTextVerticallyWithImage()})});        </script>
     </body>
 </html>
