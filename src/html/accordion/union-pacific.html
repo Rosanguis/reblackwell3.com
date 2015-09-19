@@ -1,47 +1,57 @@
-        <section class="medium-6 large-4 large-offset-2 columns" id="what-i-do">
-            <div class="row">
-                <div class="columns small-5">
-                    <h3 class="text-center center-vertically">What I do</h3>
-                </div>
-                <div class="columns small-7">
-                    <img src="images/about/articles/union-pacific/up_train_snow.jpg">
-                </div>
-            </div>
-            <div class="row">
-                <div class="small-11 columns">
-                    <p>
-                    To better understand my role as a Java developer within NetControl's Equipment division, a short history lesson is in order. In the 1960's, programmers built Transportation Control System in COBOL (a programming language that is no longer prevalent) and ran it on a mainframe. Nearly 40 years later, the decision was made to replace this mainframe program written in an outdated language with a modern program written in Java that can run on a distributed computer system instead of an expensive mainframe. NetControl, as the project is called, is a $200 million project that has been active since 2006. It was originally intended to be a 10 year project.
-                    </p>
-                    <p>
-                    NetControl Equipment has the responsibility of recreating the software pertaining to equipment (i.e. railcars and their contents) that exists in the 1960's COBOL code. The software modules created by the equipment group are integral to the larger NetControl project.
-                    </p>
-                    <p>
-                    Specifically addressing my role within Union Pacific Railroad, I use Java to build micro-services that connect to other micro-services in NetControl Equipment to accomplish complex tasks. NetControl is designed as an intricate web of services that each do one specific task and all combine to perform larger tasks.
-                    </p>
-                </div>
-            </div>
-        </section>
+<ul class="accordion" data-accordion>
 
-        <section class="medium-6 large-4 end columns" id="how-i-do-it">
-            <div class="row">
-                <div class="columns small-7">
-                    <img src="images/about/articles/union-pacific/binary.jpg">
-                </div>
-                <div class="columns small-5">
-                    <h3 class="text-center center-vertically">How I do it</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="small-11 small-offset-1 columns">
-                    <p>
-                    NetControl makes an effort to provide a relatively standardized development environment to reduce friction within the project.
-                    </p>
-                    <p>
-                    First, we employ the Agile model to plan ahead and manage our expected workload. On a more technical note, we use Maven to standardize our build process and manage dependencies and Spring for dependency injection. Our project uses Subversion for source control. We are also sure to thoroughly unit test our programs, and we use JUnit for the testing and JMock for mocking classes.
-                    </p>
-                    <p>
-                    I am very pleased by the fact that Union Pacific aims to improve the quality of its code and developers by frequently having code reviews. As a new developer, code reviews have been an excellent resource to quickly learn industry standards and finding ways to write more readable code.
-                    </p>
-                </div>
+    <li class="accordion-navigation">
+        <a href="#what-i-do" class="row text-center">
+        <div class="small-6 large-5 large-offset-1 columns center-vertically">
+            <h3>What I Do</h3>
+            <p> Simply put, I write software that helps the railroad function.</p>
+        </div>
+        <div class="small-6 large-5 end columns">
+            <img src="images/about/articles/union-pacific/up_train_snow.jpg">
+        </div>
+        </a>
+
+        <section id="what-i-do" class="row content">
+            <p class="medium-6 large-4 large-offset-2 columns">
+            To better understand my role as a Java developer within NetControl's Equipment division, a short history lesson is in order. In the 1960's, programmers built Transportation Control System in COBOL (a programming language that is no longer prevalent) and ran it on a mainframe. Nearly 40 years later, the decision was made to replace this mainframe program written in an outdated language with a modern program written in Java that can run on a distributed computer system instead of an expensive mainframe. NetControl, as the project is called, is a $200 million project that has been active since 2006. It was originally intended to be a 10 year project.
+            </p>
+            <div class="medium-6 large-4 end columns">
+                <p>
+                NetControl Equipment has the responsibility of recreating the software pertaining to equipment (i.e. railcars and their contents) that exists in the 1960's COBOL code. The software modules created by the equipment group are integral to the larger NetControl project.
+                </p>
+                <p>
+                Specifically addressing my role within Union Pacific Railroad, I use Java to build micro-services that connect to other micro-services in NetControl Equipment to accomplish complex tasks. NetControl is designed as an intricate web of services that each do one specific task and all combine to perform larger tasks.
+                </p>
             </div>
         </section>
+    </li>
+
+    <li class="accordion-navigation">
+        <a href="#how-i-do-it" class="row text-center">
+        <div class="small-6 large-5 large-offset-1 columns">
+            <img src="images/about/articles/union-pacific/binary.jpg">
+        </div>
+        <div class="small-6 large-5 end columns center-vertically">
+            <h3>How I Do It</h3>
+            <p>
+            I use Java and a suite of tools surrounding it including Spring, Maven, Subversion, and JUnit.
+            </p>
+        </div>
+        </a>
+
+        <section id="how-i-do-it" class="row content">
+            <div class="medium-6 large-4 large-offset-2 columns">
+                <p>
+                NetControl makes an effort to provide a relatively standardized development environment to reduce friction within the project.
+                </p>
+                <p>
+                First, we employ the Agile model to plan ahead and manage our expected workload. On a more technical note, we use Maven to standardize our build process and manage dependencies and Spring for dependency injection. Our project uses Subversion for source control. We are also sure to thoroughly unit test our programs, and we use JUnit for the testing and JMock for mocking classes.
+                </p>
+            </div>
+            <p class="medium-6 large-4 end columns">
+            I am very pleased by the fact that Union Pacific aims to improve the quality of its code and developers by frequently having code reviews. As a new developer, code reviews have been an excellent resource to quickly learn industry standards and finding ways to write more readable code.
+            </p>
+        </section>
+    </li>
+
+</ul>
