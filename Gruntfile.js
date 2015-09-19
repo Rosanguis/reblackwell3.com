@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                 }
             },
             processhtml: {
-                files: ['index.html', 'html/**.html'],
+                files: ['dev/**'],
                 tasks: ['processhtml']
             }
         },

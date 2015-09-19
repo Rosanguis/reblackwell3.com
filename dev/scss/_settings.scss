@@ -1,3 +1,10 @@
+$gt-gold: #cfb53b;
+$mid-light-grey: #a7a7a7;
+$almost-black: #070707;
+$dark-gold: #897935;
+$light-grey: #d5d5d5;
+$solid-grey: #555;
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
@@ -377,7 +384,7 @@ $paragraph-margin-bottom: rem-calc(20);
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $gt-gold;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -1108,12 +1115,6 @@ $paragraph-margin-bottom: rem-calc(20);
 // $tooltip-rounded: $global-rounded;
 // $tooltip-pip-size: 5px;
 // $tooltip-max-width: 300px;
-$gt-gold: #cfb53b;
-$mid-light-grey: #a7a7a7;
-$almost-black: #070707;
-$dark-gold: #897935;
-$light-grey: #d5d5d5;
-$solid-grey: #555;
 // 34. Top Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // $include-html-top-bar-classes: $include-html-classes;
