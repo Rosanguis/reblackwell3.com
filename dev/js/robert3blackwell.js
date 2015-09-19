@@ -53,6 +53,7 @@ function centerTextVerticallyWithImage() {
                 .css('margin', margin + 'px 0px');
         });
 }
+
 $(document)
     .ready(function () {
         var articleIds = ['#about-georgia-tech', '#about-union-pacific', '#about-global-travel', '#about-eagle-scout'];
@@ -67,4 +68,6 @@ $(document)
             .resize(function () {
                 centerTextVerticallyWithImage();
             });
+
+
     });
