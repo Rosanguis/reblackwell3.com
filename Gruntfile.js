@@ -11,7 +11,8 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'source/mid_build/robert3blackwell.min.css': 'source/robert3blackwell.scss'
+                    'source/mid_build/index.min.css': 'source/index.scss',
+                    'source/mid_build/intro.min.css': 'source/intro.scss'
                 }
             }
         },
@@ -35,8 +36,7 @@ module.exports = function (grunt) {
                 options: {
                     reload: true
                 },
-                files: ['Gruntfile.js'],
-                tasks: ['build']
+                files: ['Gruntfile.js']
             },
             livereload: {
                 files: 'target/**',

@@ -61,11 +61,6 @@ section > div.row:first-of-type {
     opacity: .3;
 }
 
-.anchor {
-    margin: -$topbar-height auto $topbar-height;
-    padding-top: 2 * $topbar-height;
-}
-
 article > header.row {
     margin: $topbar-height/4 auto;
 }
@@ -76,4 +71,9 @@ article {
 
 article:last-of-type {
   margin-bottom: 25vh;
+}
+
+#topbar + * {
+    margin: -$topbar-height auto $topbar-height;
+    padding-top: 2 * $topbar-height;
 }
