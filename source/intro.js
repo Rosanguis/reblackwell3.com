@@ -15,25 +15,31 @@ function centerTextVerticallyWithImage() {
 }
 
 function fadeInAndOutIntroSection(section, ms) {
-  console.log(section);
   $(section)
     .show();
   var $sectionDivs = $(section + ' > div');
+  $sectionDivs.css('opacity', '0').show();
   $sectionDivs.has('h2')
     .delay(ms.blank)
-    .fadeIn(ms.fadeIn)
+    .animate({
+        opacity: 1
+      },
+      ms.fadeIn)
     .delay(ms.delay + ms.blank) //match image fadeOut time
     .fadeOut(ms.fadeOut);
   $sectionDivs.has('img')
     .delay(2 * ms.blank) //delay start of img
-    .fadeIn(ms.fadeIn)
+    .animate({
+        opacity: 1
+      },
+      ms.fadeIn)
     .delay(ms.delay)
     .fadeOut(ms.fadeOut);
 }
 
 var introSections = ['#intro-georgia-tech', '#intro-union-pacific', '#intro-global-travel', '#intro-eagle-scout'];
 var ms = {
-  fadeIn: 400,
+  fadeIn: 600,
   delay: 1200,
   fadeOut: 700,
   blank: 500
