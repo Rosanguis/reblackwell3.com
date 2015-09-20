@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sass: {
             options: {
-                includePaths: ['node_modules/foundation/scss']
+                includePaths: ['bower_components/foundation/scss']
             },
             dist: {
                 options: {
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'src/css/robert3blackwell.min.css': 'src/scss/robert3blackwell.scss'
+                    'source/mid_build/robert3blackwell.min.css': 'source/robert3blackwell.scss'
                 }
             }
         },
@@ -44,15 +44,16 @@ module.exports = function (grunt) {
                 }
             },
             sass: {
-                files: 'src/scss/robert3blackwell.scss',
+                files: 'source/robert3blackwell.scss',
                 tasks: ['sass']
             },
             uglify: {
-                files: 'src/js/robert3blackwell.js',
+                files: 'source/robert3blackwell.js',
                 tasks: ['uglify']
             },
             processhtml: {
-                files: 'src/**',
+                options: {strip: true},
+                files: 'source/**',
                 tasks: ['processhtml']
             }
         },
@@ -63,28 +64,34 @@ module.exports = function (grunt) {
                 path: 'http://localhost:<%= express.all.options.port%>/target/index.html'
             }
         },
-        uncss: {
-            dist: {
-                options: {
-                    ignore: ['#added_at_runtime', '.created_by_jQuery']
-                },
-                files: {
-                    'src/css/uncss.css': 'src/index.html'
-                }
-            }
-        },
+        // uncss: {
+        //     dist: {
+        //         options: {
+        //             ignore: ['#added_at_runtime', '.created_by_jQuery']
+        //         },
+        //         files: {
+        //             'source/css/uncss.css': 'target/index.html'
+        //         }
+        //     }
+        // },
         processhtml: {
             dist: {
                 files: {
-                    'target/index.html': ['src/index.html']
+                    'target/index.html': ['source/index.html']
                 }
             }
         },
         uglify: {
             my_target: {
+                options: {
+                    preserveComments: false,
+                    compress: true,
+                    mangle: true,
+
+                },
                 files: {
-                    'src/js/foundation_robert3blackwell.min.js': ['src/js/foundation/foundation.accordion.js', 'src/js/foundation/foundation.equalizer.js', 'src/js/foundation/foundation.topbar.js', 'src/js/robert3blackwell.js'],
-                    'src/js/foundation/modernizr.min.js': ['src/js/foundation/modernizr.js']
+                    'source/mid_build/foundation_robert3blackwell.min.js': ['bower_components/foundation/js/foundation/foundation.accordion.js', 'bower_components/foundation/js/foundation/foundation.equalizer.js', 'bower_components/foundation/js/foundation/foundation.topbar.js', 'source/robert3blackwell.js'],
+                    'source/mid_build/modernizr.min.js': ['bower_components/foundation/js/vendor/modernizr.js']
                 }
             }
         }
