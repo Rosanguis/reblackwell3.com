@@ -69,6 +69,10 @@ article > header.row {
     margin: $topbar-height/4 auto;
 }
 
-article div.image-grid {
-  margin-top: $topbar-height;
+article {
+  margin-bottom: 1.5 * $topbar-height;
+}
+
+article:last-of-type {
+  margin-bottom: 25vh;
 }
