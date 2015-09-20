@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sass: {
             options: {
-                includePaths: ['bower_components/foundation/scss']
+                includePaths: ['node_modules/foundation/scss']
             },
             dist: {
                 options: {
