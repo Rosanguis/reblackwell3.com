@@ -83,7 +83,8 @@ module.exports = function (grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'src/js/robert3blackwell.min.js': ['src/js/robert3blackwell.js']
+                    'src/js/foundation_robert3blackwell.min.js': ['src/js/foundation/foundation.accordion.js', 'src/js/foundation/foundation.equalizer.js', 'src/js/foundation/foundation.topbar.js', 'src/js/robert3blackwell.js'],
+                    'src/js/foundation/modernizr.min.js': ['src/js/foundation/modernizr.js']
                 }
             }
         }
