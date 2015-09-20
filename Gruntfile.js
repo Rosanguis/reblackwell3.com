@@ -37,18 +37,22 @@ module.exports = function (grunt) {
                 },
                 files: ['Gruntfile.js']
             },
-            sass: {
-                files: 'src/scss/**/*.scss',
-                tasks: ['sass']
-            },
-            all: {
+            livereload: {
                 files: 'target/index.html',
                 options: {
                     livereload: true
                 }
             },
+            sass: {
+                files: 'src/scss/robert3blackwell.scss',
+                tasks: ['sass']
+            },
+            uglify: {
+                files: 'src/js/robert3blackwell.js',
+                tasks: ['uglify']
+            },
             processhtml: {
-                files: ['src/**'],
+                files: 'src/**',
                 tasks: ['processhtml']
             }
         },

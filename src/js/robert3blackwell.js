@@ -1,24 +1,6 @@
 $(document)
     .foundation();
 
-function equalizeDocumentAndCreateAccordion() {
-    $(document)
-        .foundation({
-            equalizer: {
-                equalize_on_stack: true
-            }
-        });
-    $(document)
-        .foundation({
-            accordion: {
-                callback: function(accordion) {
-                    console.log(accordion);
-                }
-            }
-        });
-}
-equalizeDocumentAndCreateAccordion();
-
 function setActiveTab(activeTabSelector) {
     $('#ul-nav li')
         .removeClass('active');
@@ -35,7 +17,6 @@ function displayContactPage() {
         .find('#contact')
         .show();
     setActiveTab('#contact-nav');
-    equalizeDocumentAndCreateAccordion();
 }
 
 function displayAboutPage() {
@@ -46,7 +27,6 @@ function displayAboutPage() {
         .not('#contact')
         .show();
     setActiveTab('#about-nav');
-    equalizeDocumentAndCreateAccordion();
 }
 
 function centerTextVerticallyWithImage() {
@@ -61,8 +41,7 @@ function centerTextVerticallyWithImage() {
                 .css('margin', margin + 'px 0px');
         });
 }
-$(document)
-    .ready(function () {
+$(window).load(function () {
         var articleIds = ['#about-georgia-tech', '#about-union-pacific', '#about-global-travel', '#about-eagle-scout'];
         for (var i = 0; i < articleIds.length; i++) {
             var articleId = articleIds[i];
@@ -72,7 +51,7 @@ $(document)
         }
         centerTextVerticallyWithImage();
         $(window)
-            .resize(function () {
+            .resize(function() {
                 centerTextVerticallyWithImage();
             });
     });

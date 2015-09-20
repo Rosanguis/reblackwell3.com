@@ -1,26 +1,31 @@
 <section id="contact" class="row anchor" style="display: none;" data-equalizer>
     <div class="small-10 small-centered large-8 large-centered columns">
         <h1 class="text-center">Contact Me</h1>
-        <form id="contact-form" class="row">
-            <div class="medium-6 columns" data-equalizer-watch>
-                <label>Name
-                    <input required id="name" type="text" placeholder="What is your name?">
-                </label>
-                <label>Email
-                    <input required id="email" type="email" placeholder="What is your email?">
-                </label>
-                <label>Phone
-                    <input id="phone" type="tel" placeholder="What is your phone number?">
-                </label>
+        <form id="contact-form">
+            <div class="row">
+                <div class="medium-6 columns" data-equalizer-watch>
+                    <label>Name
+                        <input required id="name" type="text" placeholder="What is your name?">
+                    </label>
+                    <label>Email
+                        <input required id="email" type="email" placeholder="What is your email?">
+                    </label>
+                    <label>Phone
+                        <input id="phone" type="tel" placeholder="What is your phone number?">
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Message
+                        <textarea required autofocus id="message" maxlength="400" rows="8" placeholder="What would you like to say?" data-equalizer-watch></textarea>
+                    </label>
+                </div>
             </div>
-            <div class="medium-6 columns">
-                <label>Message
-                    <textarea required autofocus id="message" maxlength="400" rows="8" placeholder="What would you like to say?" data-equalizer-watch></textarea>
-                </label>
+            <div class="row">
+                <div class="small-6 small-centered columns text-center">
+                    <button type="submit" class="button">Send</button>
+                </div>
             </div>
-            <div class="small-6 small-centered columns text-center">
-                <button type="submit" class="button">Send</button>
-            </div>
+
         </form>
     </div>
 </section>

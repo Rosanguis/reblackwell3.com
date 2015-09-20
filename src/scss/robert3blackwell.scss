@@ -27,7 +27,7 @@
 //   "foundation/components/sub-nav",
 //   "foundation/components/switches",
 //   "foundation/components/tables",
-//   "foundation/components/tabs",
+  "foundation/components/tabs",
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
   'foundation/components/top-bar',
@@ -67,4 +67,8 @@ section > div.row:first-of-type {
 
 article > header.row {
     margin: $topbar-height/4 auto;
+}
+
+article div.image-grid {
+  margin-top: $topbar-height;
 }
