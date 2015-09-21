@@ -14,10 +14,22 @@ function centerTextVerticallyWithImage() {
     });
 }
 
+var introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
+  ms = {
+    fadeIn: 600,
+    delay: 1500,
+    fadeOut: 700,
+    blank: 500
+  };
+ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
+
 function fadeInAndOutIntroSection(section, ms) {
-  $(section)
+  var introSection = '#intro-' + section,
+    $sectionDivs = $(introSection + ' > div');
+
+  $(introSection)
     .show();
-  var $sectionDivs = $(section + ' > div');
+
   $sectionDivs.css('opacity', '0').show();
   $sectionDivs.has('h2')
     .delay(ms.blank)
@@ -35,16 +47,10 @@ function fadeInAndOutIntroSection(section, ms) {
       ms.fadeIn)
     .delay(ms.delay)
     .fadeOut(ms.fadeOut);
+
 }
 
-var introSections = ['#intro-georgia-tech', '#intro-union-pacific', '#intro-global-travel', '#intro-eagle-scout'];
-var ms = {
-  fadeIn: 600,
-  delay: 1200,
-  fadeOut: 700,
-  blank: 500
-};
-ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
+var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'];
 
 $(window)
   .load(function () {
@@ -56,6 +62,11 @@ $(window)
         },
         ms.combined * i
       );
+      setTimeout(
+        function () {
+          $('#grid-' + gridSections.shift() + ' img').fadeIn(ms.fadeIn);
+        },
+        ms.combined * introSections.length + (ms.fadeIn + ms.blank) * i)
     }
     centerTextVerticallyWithImage();
     $(window)
