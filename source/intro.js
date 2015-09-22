@@ -16,38 +16,41 @@ function centerTextVerticallyWithImage() {
 
 var introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
   ms = {
-    fadeIn: 600,
-    delay: 1500,
-    fadeOut: 700,
-    blank: 500
+    fadeIn: 750,
+    delay: 1300,
+    fadeOut: 750,
+    blank: 750,
+    grid: {
+      blank: 300,
+      fadeIn: 500
+    }
   };
 ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
 
 function fadeInAndOutIntroSection(section, ms) {
   var introSection = '#intro-' + section,
-    $sectionDivs = $(introSection + ' > div');
+    sectionDivs = introSection + ' > div';
 
   $(introSection)
     .show();
 
-  $sectionDivs.css('opacity', '0').show();
-  $sectionDivs.has('h2')
+  $(sectionDivs).css('opacity', '0').show();
+  $(sectionDivs + ':eq(0)')
     .delay(ms.blank)
     .animate({
         opacity: 1
       },
-      ms.fadeIn)
-    .delay(ms.delay + ms.blank) //match image fadeOut time
-    .fadeOut(ms.fadeOut);
-  $sectionDivs.has('img')
+      ms.fadeIn);
+  $(sectionDivs + ':eq(1)')
     .delay(2 * ms.blank) //delay start of img
     .animate({
         opacity: 1
       },
-      ms.fadeIn)
+      ms.fadeIn);
+  $(introSection)
+    .delay(ms.combined - (ms.delay + ms.fadeOut))
     .delay(ms.delay)
     .fadeOut(ms.fadeOut);
-
 }
 
 var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'];
@@ -66,7 +69,7 @@ $(window)
         function () {
           $('#grid-' + gridSections.shift() + ' img').fadeIn(ms.fadeIn);
         },
-        ms.combined * introSections.length + (ms.fadeIn + ms.blank) * i)
+        ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
     }
     centerTextVerticallyWithImage();
     $(window)
