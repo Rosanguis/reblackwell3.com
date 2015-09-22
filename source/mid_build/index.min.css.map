@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "robert3blackwell.min.css",
+	"file": "index.min.css",
 	"sources": [
-		"../../robert3blackwell.scss",
+		"../../index.scss",
 		"../../../bower_components/foundation/scss/normalize.scss",
 		"../../_settings.scss",
 		"../../../bower_components/foundation/scss/foundation/components/_accordion.scss",

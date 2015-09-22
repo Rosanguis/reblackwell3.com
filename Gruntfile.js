@@ -11,7 +11,8 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'source/mid_build/robert3blackwell.min.css': 'source/robert3blackwell.scss'
+                    'source/mid_build/index.min.css': 'source/index.scss',
+                    'source/mid_build/intro.min.css': 'source/intro.scss'
                 }
             }
         },
@@ -38,17 +39,17 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             livereload: {
-                files: 'target/index.html',
+                files: 'target/**',
                 options: {
                     livereload: true
                 }
             },
             sass: {
-                files: 'source/robert3blackwell.scss',
+                files: 'source/**.scss',
                 tasks: ['sass']
             },
             uglify: {
-                files: 'source/robert3blackwell.js',
+                files: 'source/**.js',
                 tasks: ['uglify']
             },
             processhtml: {
@@ -59,9 +60,12 @@ module.exports = function (grunt) {
         },
         // grunt-open will open your browser at the project's URL
         open: {
-            all: {
+            index: {
                 // Gets the port from the connect configuration
                 path: 'http://localhost:<%= express.all.options.port%>/target/index.html'
+            },
+            intro: {
+                path: 'http://localhost:<%= express.all.options.port%>/target/intro.html'  
             }
         },
         // uncss: {
@@ -77,7 +81,8 @@ module.exports = function (grunt) {
         processhtml: {
             dist: {
                 files: {
-                    'target/index.html': ['source/index.html']
+                    'target/index.html': ['source/index.html'],
+                    'target/intro.html': ['source/intro.html']
                 }
             }
         },
@@ -90,8 +95,10 @@ module.exports = function (grunt) {
 
                 },
                 files: {
-                    'source/mid_build/foundation_robert3blackwell.min.js': ['bower_components/foundation/js/foundation/foundation.accordion.js', 'bower_components/foundation/js/foundation/foundation.equalizer.js', 'bower_components/foundation/js/foundation/foundation.topbar.js', 'source/robert3blackwell.js'],
-                    'source/mid_build/modernizr.min.js': ['bower_components/foundation/js/vendor/modernizr.js']
+                    'source/mid_build/foundation.min.js' : ['bower_components/foundation/js/foundation/foundation.accordion.js', 'bower_components/foundation/js/foundation/foundation.equalizer.js', 'bower_components/foundation/js/foundation/foundation.topbar.js'],
+                    'source/mid_build/modernizr.min.js': ['bower_components/foundation/js/vendor/modernizr.js'],
+                    'source/mid_build/foundation_index.min.js': ['source/mid_build/foundation.min.js', 'source/index.js'],
+                    'source/mid_build/foundation_intro.min.js': ['source/mid_build/foundation.min.js', 'source/intro.js']
                 }
             }
         }
