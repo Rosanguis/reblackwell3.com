@@ -35,6 +35,8 @@ function fadeInAndOutIntroSection(section, ms) {
     .show();
 
   $(sectionDivs).css('opacity', '0').show();
+  centerTextVerticallyWithImage();
+
   $(sectionDivs + ':eq(0)')
     .delay(ms.blank)
     .animate({
@@ -47,10 +49,13 @@ function fadeInAndOutIntroSection(section, ms) {
         opacity: 1
       },
       ms.fadeIn);
+
   $(introSection)
     .delay(ms.combined - (ms.delay + ms.fadeOut))
     .delay(ms.delay)
-    .fadeOut(ms.fadeOut);
+    .fadeOut(ms.fadeOut, function () {
+      this.remove();
+    });
 }
 
 var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'];
@@ -71,9 +76,21 @@ $(window)
         },
         ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
     }
-    centerTextVerticallyWithImage();
+    setTimeout(function () {
+        $.ajax({
+          url: '/target/index.html',
+          type: 'get',
+          success: function (data) {
+            console.log(data);
+            $("body").html(data);
+          }
+        });
+      },
+      ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i)
+
     $(window)
       .resize(function () {
         centerTextVerticallyWithImage();
       });
+
   });
