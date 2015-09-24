@@ -70,16 +70,6 @@ module.exports = function (grunt) {
         path: 'http://localhost:<%= express.all.options.port%>/target/intro.html'
       }
     },
-    // uncss: {
-    //     dist: {
-    //         options: {
-    //             ignore: ['#added_at_runtime', '.created_by_jQuery']
-    //         },
-    //         files: {
-    //             'source/css/uncss.css': 'target/index.html'
-    //         }
-    //     }
-    // },
     processhtml: {
       dist: {
         files: {
