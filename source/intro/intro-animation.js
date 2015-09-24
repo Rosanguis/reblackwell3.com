@@ -1,6 +1,20 @@
 $(document)
   .foundation();
 
+var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'],
+  introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
+  ms = {
+    fadeIn: 750,
+    delay: 1300,
+    fadeOut: 750,
+    blank: 750,
+    grid: {
+      blank: 300,
+      fadeIn: 500
+    }
+  };
+ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
+
 function centerTextVerticallyWithImage() {
   $('.center-vertically')
     .each(function () {
@@ -13,19 +27,6 @@ function centerTextVerticallyWithImage() {
         .css('margin', margin + 'px 0px');
     });
 }
-
-var introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
-  ms = {
-    fadeIn: 750,
-    delay: 1300,
-    fadeOut: 750,
-    blank: 750,
-    grid: {
-      blank: 300,
-      fadeIn: 500
-    }
-  };
-ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
 
 function fadeInAndOutIntroSection(section, ms) {
   var introSection = '#intro-' + section,
@@ -50,6 +51,7 @@ function fadeInAndOutIntroSection(section, ms) {
       },
       ms.fadeIn);
 
+
   $(introSection)
     .delay(ms.combined - (ms.delay + ms.fadeOut))
     .delay(ms.delay)
@@ -58,10 +60,9 @@ function fadeInAndOutIntroSection(section, ms) {
     });
 }
 
-var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'];
-
 $(window)
   .load(function () {
+
     var i;
     for (i = 0; i < introSections.length; i++) {
       setTimeout(
@@ -70,27 +71,33 @@ $(window)
         },
         ms.combined * i
       );
+
       setTimeout(
         function () {
           $('#grid-' + gridSections.shift() + ' img').fadeIn(ms.fadeIn);
         },
-        ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
+        ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i
+      );
     }
+
+    /*
+    AJAX call works but will need to be reworked
+     */
     setTimeout(function () {
         $.ajax({
-          url: '/target/index.html',
+          url: '/target/everything.json',
           type: 'get',
           success: function (data) {
-            console.log(data);
-            $("body").html(data);
+            var data2 = data['about']; //JSON testing
+            console.log(data2);
+            $("body").html(data2);
           }
         });
       },
-      ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i)
+      ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
 
     $(window)
       .resize(function () {
         centerTextVerticallyWithImage();
       });
-
   });
