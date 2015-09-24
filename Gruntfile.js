@@ -70,12 +70,21 @@ module.exports = function (grunt) {
         path: 'http://localhost:<%= express.all.options.port%>/target/intro.html'
       }
     },
+    findSrc: {
+      src: ['source/*/*.html']
+    },
     processhtml: {
       dist: {
-        files: {
-          'target/index.html': ['source/index.html'],
-          'target/intro.html': ['source/intro.html']
-        }
+        files: [{
+          expand: true,
+          cwd: './',
+          src: ['source/*/*.html'],
+          dest: 'target/',
+          ext: '.html',
+          rename: function(dest, src) {
+            return dest + src.substr(src.indexOf('/'));
+          }
+        }]
       }
     },
     uglify: {
