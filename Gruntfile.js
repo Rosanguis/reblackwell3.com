@@ -11,9 +11,7 @@ module.exports = function (grunt) {
           sourceMap: true
         },
         files: {
-          'source/mid_build/index.min.css': 'source/index.scss',
-          'source/mid_build/intro.min.css': 'source/intro.scss'
-        }
+          'source/shared/html_partials/mid_build/shared-styles.min.css': 'source/shared/_shared-styles.scss'        }
       }
     },
     // grunt-express will serve the files from the folders listed in `bases`
