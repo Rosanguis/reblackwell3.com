@@ -1,6 +1,20 @@
 $(document)
   .foundation();
 
+var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'],
+  introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
+  ms = {
+    fadeIn: 750,
+    delay: 1300,
+    fadeOut: 750,
+    blank: 750,
+    grid: {
+      blank: 300,
+      fadeIn: 500
+    }
+  };
+ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
+
 function centerTextVerticallyWithImage() {
   $('.center-vertically')
     .each(function () {
@@ -14,19 +28,6 @@ function centerTextVerticallyWithImage() {
     });
 }
 
-var introSections = ['georgia-tech', 'union-pacific', 'global-travel', 'eagle-scout'],
-  ms = {
-    fadeIn: 750,
-    delay: 1300,
-    fadeOut: 750,
-    blank: 750,
-    grid: {
-      blank: 300,
-      fadeIn: 500
-    }
-  };
-ms.combined = ms.fadeIn + ms.delay + ms.fadeOut + 2 * ms.blank;
-
 function fadeInAndOutIntroSection(section, ms) {
   var introSection = '#intro-' + section,
     sectionDivs = introSection + ' > div';
@@ -35,6 +36,8 @@ function fadeInAndOutIntroSection(section, ms) {
     .show();
 
   $(sectionDivs).css('opacity', '0').show();
+  centerTextVerticallyWithImage();
+
   $(sectionDivs + ':eq(0)')
     .delay(ms.blank)
     .animate({
@@ -47,16 +50,19 @@ function fadeInAndOutIntroSection(section, ms) {
         opacity: 1
       },
       ms.fadeIn);
+
+
   $(introSection)
     .delay(ms.combined - (ms.delay + ms.fadeOut))
     .delay(ms.delay)
-    .fadeOut(ms.fadeOut);
+    .fadeOut(ms.fadeOut, function () {
+      this.remove();
+    });
 }
-
-var gridSections = ['georgia-tech', 'eagle-scout', 'union-pacific', 'global-travel'];
 
 $(window)
   .load(function () {
+
     var i;
     for (i = 0; i < introSections.length; i++) {
       setTimeout(
@@ -65,13 +71,31 @@ $(window)
         },
         ms.combined * i
       );
+
       setTimeout(
         function () {
           $('#grid-' + gridSections.shift() + ' img').fadeIn(ms.fadeIn);
         },
-        ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
+        ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i
+      );
     }
-    centerTextVerticallyWithImage();
+
+    /*
+    AJAX call works but will need to be reworked
+     */
+    setTimeout(function () {
+        $.ajax({
+          url: '/target/everything.json',
+          type: 'get',
+          success: function (data) {
+            var data2 = data['about']; //JSON testing
+            console.log(data2);
+            $("body").html(data2);
+          }
+        });
+      },
+      ms.combined * introSections.length + ms.blank + (ms.grid.fadeIn + ms.grid.blank) * i);
+
     $(window)
       .resize(function () {
         centerTextVerticallyWithImage();

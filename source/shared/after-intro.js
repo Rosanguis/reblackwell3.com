@@ -41,6 +41,7 @@ function centerTextVerticallyWithImage() {
         .css('margin', margin + 'px 0px');
     });
 }
+
 $(window).load(function () {
   var articleIds = ['#about-georgia-tech', '#about-union-pacific', '#about-global-travel', '#about-eagle-scout'];
   for (var i = 0; i < articleIds.length; i++) {

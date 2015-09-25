@@ -1,21 +1,21 @@
-    @import 'normalize',
-    'settings',
-  "foundation/components/accordion",
+@import 'normalize',
+'settings',
+"foundation/components/accordion",
 //   "foundation/components/alert-boxes",
-  'foundation/components/block-grid',
+'foundation/components/block-grid',
 //   "foundation/components/breadcrumbs",
 //   "foundation/components/button-groups",
-  "foundation/components/buttons",
+"foundation/components/buttons",
 //   "foundation/components/clearing",
 //   "foundation/components/dropdown",
 //   "foundation/components/dropdown-buttons",
 //   "foundation/components/flex-video",
-  'foundation/components/forms',
-  'foundation/components/grid',
+'foundation/components/forms',
+'foundation/components/grid',
 //   "foundation/components/inline-lists",
 //   "foundation/components/joyride",
 //   "foundation/components/keystrokes",
-  'foundation/components/labels',
+'foundation/components/labels',
 //   "foundation/components/magellan",
 //   "foundation/components/orbit",
 //   "foundation/components/pagination",
@@ -28,41 +28,40 @@
 //   "foundation/components/sub-nav",
 //   "foundation/components/switches",
 //   "foundation/components/tables",
-  // "foundation/components/tabs",
+// "foundation/components/tabs",
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
-  'foundation/components/top-bar',
-  'foundation/components/type',
+'foundation/components/top-bar',
+'foundation/components/type',
 //   "foundation/components/offcanvas",
-  'foundation/components/visibility';
+'foundation/components/visibility';
 
 a > i {
-    margin-right: rem-calc(5);
+  margin-right: rem-calc(5);
 }
 
 li.brand > a {
-    font-size: $topbar-height * .4;
-
-    color: $gt-gold;
-    img {
-        height: $topbar-height;
-    }
+  font-size: $topbar-height * .4;
+  color: $gt-gold;
+  img {
+    height: $topbar-height;
+  }
 }
 
 textarea {
-    height: auto;
+  height: auto;
 }
 
 section > div.row:first-of-type {
-    margin-bottom: $paragraph-margin-bottom / 2;
+  margin-bottom: $paragraph-margin-bottom / 2;
 }
 
 .small-block-grid-2 img {
-    opacity: .3;
+  opacity: .3;
 }
 
 article > header.row {
-    margin: $topbar-height/4 auto;
+  margin: $topbar-height/4 auto;
 }
 
 article {
@@ -74,6 +73,34 @@ article:last-of-type {
 }
 
 #topbar + * {
-    margin: -$topbar-height auto $topbar-height;
-    padding-top: 2 * $topbar-height;
+  margin: -$topbar-height auto $topbar-height;
+  padding-top: 2 * $topbar-height;
+}
+
+
+/*
+  INTRO ANIMATION STYLES
+
+  SOME REDUNDANT
+ */
+li.brand > a {
+  font-size: $topbar-height * .4;
+  color: $gt-gold;
+  img {
+    height: $topbar-height;
+  }
+}
+
+.small-block-grid-2 img {
+  display: none;
+}
+
+#topbar + * {
+  margin-top: -$topbar-height;
+  padding-top: 2 * $topbar-height;
+}
+
+section,
+section > div {
+  display: none;
 }
