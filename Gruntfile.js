@@ -11,7 +11,8 @@ module.exports = function (grunt) {
           sourceMap: true
         },
         files: {
-          'source/shared/html_partials/mid_build/shared-styles.min.css': 'source/shared/_shared-styles.scss'        }
+          'source/shared/html_partials/_mid-build/shared-styles.min.css': 'source/shared/shared-styles.scss'
+        }
       }
     },
     // grunt-express will serve the files from the folders listed in `bases`
@@ -81,34 +82,40 @@ module.exports = function (grunt) {
       src: ['source/*/*.html']
     },
     processhtml: {
-      html_partials: {
-        files: [{
-          expand: true,
-          cwd: './',
-          src: ['source/*/html_partials/_mid-build/*.html'],
-          dest: 'target/',
-          ext: '.html',
-          rename: function (dest, src) {
-            console.log(src);
-            var pathAfterSource = src.substr(src.indexOf('/') + 1);
-            var folderName = pathAfterSource.slice(0, pathAfterSource.indexOf('/')+1);
-            var fileName = src.substr(src.lastIndexOf('/'));
-            return dest + folderName + fileName;
+      mid_build: {
+          files: [{
+            expand: true,
+            cwd: './',
+            src: ['source/*/html_partials/_mid-build/*.html'],
+            dest: '',
+            ext: '.html',
+            rename: function (dest, src) {
+              // Combined with dest: 'target/' to send to target... unnecessary
+              // console.log(src);
+              // var pathAfterSource = src.substr(src.indexOf('/') + 1);
+              // var folderName = pathAfterSource.slice(0, pathAfterSource.indexOf('/') + 1);
+              // var fileName = src.substr(src.lastIndexOf('/'));
+              return src;
+            }
+          }]
+        },
+        lone_wolf: {
+          files: {
+            'source/shared/html_partials/_mid-build/html-end-body.html': 'source/shared/html_partials/html-end-body.html'
           }
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: './',
-          src: ['source/*/*.html'],
-          dest: 'target/',
-          ext: '.html',
-          rename: function (dest, src) {
-            return dest + src.substr(src.indexOf('/'));
-          }
-        }]
-      }
+        },
+        dist: {
+          files: [{
+            expand: true,
+            cwd: './',
+            src: ['source/*/*.html'],
+            dest: 'target/',
+            ext: '.html',
+            rename: function (dest, src) {
+              return dest + src.substr(src.indexOf('/'));
+            }
+          }]
+        }
     },
     uglify: {
       my_target: {
@@ -156,19 +163,19 @@ module.exports = function (grunt) {
     }
 
   });
-  grunt.registerTask('build-json', function () {
-    var project = grunt.file.readJSON('source/everything.json');
-    var jsonKeyFileNameMap = grunt.config('jsonKeyFileNameMap');
-    Object.keys(jsonKeyFileNameMap).forEach(function (jsonKey) {
-      if (!grunt.file.exists(jsonKeyFileNameMap[jsonKey])) {
-        grunt.log.error("file " + jsonKeyFileNameMap[jsonKey] + " not found");
-        return true; //return false to abort the execution
-      }
-      project[jsonKey] = grunt.file.read(jsonKeyFileNameMap[jsonKey]);
-    });
-    grunt.file.write('target/everything.json', JSON.stringify(project, null, 2)); //serialize it back to file
-  });
+  // grunt.registerTask('build-json', function () {
+  //   var project = grunt.file.readJSON('source/everything.json');
+  //   var jsonKeyFileNameMap = grunt.config('jsonKeyFileNameMap');
+  //   Object.keys(jsonKeyFileNameMap).forEach(function (jsonKey) {
+  //     if (!grunt.file.exists(jsonKeyFileNameMap[jsonKey])) {
+  //       grunt.log.error("file " + jsonKeyFileNameMap[jsonKey] + " not found");
+  //       return true; //return false to abort the execution
+  //     }
+  //     project[jsonKey] = grunt.file.read(jsonKeyFileNameMap[jsonKey]);
+  //   });
+  //   grunt.file.write('target/everything.json', JSON.stringify(project, null, 2)); //serialize it back to file
+  // });
   grunt.registerTask('build', ['base64', 'sass', 'uglify', 'inline-base64', 'processhtml']);
   grunt.registerTask('server', ['express', 'open', 'watch']);
-  grunt.registerTask('default', ['build', 'build-json', 'server']);
+  grunt.registerTask('default', ['build', 'server']);
 };
