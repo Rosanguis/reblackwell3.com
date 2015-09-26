@@ -38,19 +38,17 @@ function fadeInAndOutIntroSection(section, ms) {
   $(sectionDivs).css('opacity', '0').show();
   centerTextVerticallyWithImage();
 
-  $(sectionDivs + ':eq(0)')
-    .delay(ms.blank)
+function beginAnimation(i) {
+  $(sectionDivs + ':eq('+i+')')
+    .delay((i+1)*ms.blank)
     .animate({
         opacity: 1
       },
       ms.fadeIn);
-  $(sectionDivs + ':eq(1)')
-    .delay(2 * ms.blank) //delay start of img
-    .animate({
-        opacity: 1
-      },
-      ms.fadeIn);
+}
 
+beginAnimation(0);
+beginAnimation(1);
 
   $(introSection)
     .delay(ms.combined - (ms.delay + ms.fadeOut))
