@@ -1,4 +1,4 @@
-# Robert3Blackwell.com
+# Robert3Blackwell.com (Now moved to reblackwell3.com)
 Personal website with professional information on Robert Blackwell
 
 This website is a work in progress. I am currently experimenting with Django and AJAX
