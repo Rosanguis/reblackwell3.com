@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main()
+{
+   printf("Good morning, Robert. I'm Claire.");
+   
+   return 0;
+}
